@@ -1,18 +1,19 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]        = "monospace:size=9";
-static const char* normbgcolor  = "#222222";
-static const char* normfgcolor  = "#cccccc";
-static const char* selbgcolor   = "#555555";
-static const char* selfgcolor   = "#ffffff";
+static const char font[]        = "Ubuntu Mono Nerd Font:pixelsize=14:antialias=true:autohint=true";
+static const char* normbgcolor  = "#000000";
+static const char* normfgcolor  = "white";
+static const char* selbgcolor   = "#000000";
+static const char* selfgcolor   = "red";
 static const char* urgbgcolor   = "#111111";
 static const char* urgfgcolor   = "#cc0000";
 static const char before[]      = "<";
 static const char after[]       = ">";
 static const char titletrim[]   = "...";
-static const int  tabwidth      = 200;
+static const int  tabwidth      = 20;
 static const Bool foreground    = True;
+static const int barHeight	= 16;
 static       Bool urgentswitch  = False;
 
 /*
@@ -37,13 +38,13 @@ static Bool npisrelative  = False;
 static Key keys[] = {
 	/* modifier             key        function     argument */
 	{ MODKEY|ShiftMask,     XK_Return, focusonce,   { 0 } },
-	{ MODKEY|ShiftMask,     XK_Return, spawn,       { 0 } },
+	{ MODKEY,	     	XK_t, 	   spawn,       { 0 } },
 
-	{ MODKEY|ShiftMask,     XK_l,      rotate,      { .i = +1 } },
-	{ MODKEY|ShiftMask,     XK_h,      rotate,      { .i = -1 } },
-	{ MODKEY|ShiftMask,     XK_j,      movetab,     { .i = -1 } },
-	{ MODKEY|ShiftMask,     XK_k,      movetab,     { .i = +1 } },
-	{ MODKEY,               XK_Tab,    rotate,      { .i = 0 } },
+	{ MODKEY|ShiftMask,     XK_l,      movetab,      { .i = +1 } },
+	{ MODKEY|ShiftMask,     XK_h,      movetab,      { .i = -1 } },
+	{ MODKEY|ShiftMask,     XK_Tab,    rotate,     { .i = -1 } },
+	{ MODKEY,    		XK_Tab,    rotate,     { .i = +1 } },
+	{ MODKEY,               XK_k,      rotate,      { .i = 0 } },
 
 	{ MODKEY,               XK_grave,  spawn,       SETPROP("_TABBED_SELECT_TAB") },
 	{ MODKEY,               XK_1,      move,        { .i = 0 } },
